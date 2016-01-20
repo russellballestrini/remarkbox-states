@@ -1,7 +1,21 @@
 base:
 
-  'remarkbox-salt':
+  #'*':
+
+  '*-salt':
     - salt-master
  
-  'remarkbox-web*':
+  '*-web*':
     - nginx
+
+  '*-app*':
+    - uwsgi
+    - postfix
+    - postfix.local
+
+  '*-db*':
+    - postgresql
+
+  '*-mx*':
+    - postfix
+    - postfix.server
