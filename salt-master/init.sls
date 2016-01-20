@@ -10,7 +10,7 @@ salt-master:
     - running
 
   file.managed:
-    - name: /etc/salt/master.d/custom.conf:
+    - name: /etc/salt/master.d/custom.conf
     - source: salt://salt-master/custom.conf
     - user: root
     - group: root
