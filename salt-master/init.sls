@@ -3,4 +3,3 @@ manage-srv-remarkbox-states:
     - name: https://github.com/russellballestrini/remarkbox-states.git
     - target: /src/remarkbox-states
     - branch: master
-  
