@@ -51,8 +51,8 @@ Configuration management Salt States for remarkbox.com.
                              |      $19.32/mo      |
                              |                     |
                              +---------------------+
-    2 x mx
-    2 x web
-    4 x app
-    1 x db
-    1 x salt-master
+    2 x mx            postfix
+    2 x web           nginx
+    4 x app           uwsgi
+    1 x db            postgresql
+    1 x salt-master   salt-msater
