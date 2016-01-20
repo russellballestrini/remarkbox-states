@@ -62,7 +62,7 @@ Joyent Smart Datacenter Provision
 
 Create new ubuntu instance, configure hostname, and bootstrap salt.
 
-code-block::
+.. code-block::
 
  HOSTNAME='remarkbox-web02'
  IMAGE=$(sdc-listimages | json -c 'this.name=="ubuntu-14.04" && this.version=="20151005"' 0.id)
