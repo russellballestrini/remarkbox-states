@@ -1,5 +1,5 @@
 base:
 
-  'remarkbox-salt-master':
+  'remarkbox-salt':
     - salt-master
   
