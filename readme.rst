@@ -68,6 +68,6 @@ code-block::
  IMAGE=$(sdc-listimages | json -c 'this.name=="ubuntu-14.04" && this.version=="20151005"' 0.id)
  PACKAGE=$(sdc-listpackages | json -c 'this.name=="t4-standard-256M"' 0.id)
 
- sdc-createmachine --image $IMAGE --package $PACKAGE --script remarkbox-install-salt.sh \
+ sdc-createmachine --image $IMAGE --package $PACKAGE --script bootstrap.sh \
    --metadata master=10.112.3.33 --metadata hostname=$HOSTNAME --name $HOSTNAME 
 
