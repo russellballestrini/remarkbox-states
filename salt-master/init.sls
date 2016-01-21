@@ -1,3 +1,6 @@
+# Configuring the Salt Master:
+#    https://docs.saltstack.com/en/latest/ref/configuration/master.html
+
 manage-srv-remarkbox-states:
   git.latest:
     - name: https://github.com/russellballestrini/remarkbox-states.git
