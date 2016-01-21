@@ -19,3 +19,9 @@ base:
   '*-mx*':
     - postfix
     - postfix.server
+
+  '*-jenkins*':
+    - jenkins.worker.ubuntu
+    - python.virtualenv
+    - java
+    - vcs.git
