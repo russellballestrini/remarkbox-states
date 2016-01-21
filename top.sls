@@ -9,9 +9,9 @@ base:
     - nginx
 
   '*-app*':
-    - uwsgi
-    - postfix
-    - postfix.local
+    - uwsgi.sites
+    #- postfix
+    #- postfix.local
 
   '*-db*':
     - postgresql
