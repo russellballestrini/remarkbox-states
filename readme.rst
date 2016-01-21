@@ -7,6 +7,9 @@ These states assume machines are ubuntu ...
 this assumption will likely change.
 
 
+RemarkBox Architecture 
+======================
+
 .. code-block::
 
                        +---------------------------------+
@@ -19,15 +22,15 @@ this assumption will likely change.
                        +----+-----------------------+----+
                             |                       |
                             |                       |
-                    +-------v-------+       +-------v-------+             +------------------+
-                    |               |       |               |             |                  |
-                    |   Nginx Load  |       |   Nginx Load  |             | Config Management|
-                +---+               |       |               +---+         |                  |
-                |   |    Balancer   |       |   Balancer    |   |         |    Salt Master   |
-                |   |               |       |               |   |         |                  |
-                |   |  256M $4.75   |       | 256M $4.75/mo |   |         |  256M $4.75/mo   |
-                |   |               |       |               |   |         |                  |
-                |   +---------------+       +---------------+   |         +------------------+
+                    +-------v-------+       +-------v-------+           +------------------+    +------------------+
+                    |               |       |               |           |                  |    |                  |
+                    |   Nginx Load  |       |   Nginx Load  |           | Config Management|    | Build Host Worker|
+                +---+               |       |               +---+       |                  |    |                  |
+                |   |    Balancer   |       |   Balancer    |   |       |    Salt Master   |    |     Jenkins      |
+                |   |               |       |               |   |       |                  |    |                  |
+                |   |  256M $4.75   |       | 256M $4.75/mo |   |       |  256M $4.75/mo   |    |  256M $4.75/mo   |
+                |   |               |       |               |   |       |                  |    |                  |
+                |   +---------------+       +---------------+   |       +------------------+    +------------------+
                 |                                               |
                 |                                               |
          +------+-------------+--------------------+------------+-------+
@@ -54,11 +57,12 @@ this assumption will likely change.
                              |      $19.32/mo      |
                              |                     |
                              +---------------------+
-    2 x mx     postfix
-    2 x web    nginx
-    4 x app    uwsgi
-    1 x db     postgresql
-    1 x salt   salt-msater
+    2 x mx       postfix
+    2 x web      nginx
+    4 x app      uwsgi
+    1 x db       postgresql
+    1 x salt     salt-msater
+    1 x jenkins  build host
 
 Joyent Smart Datacenter Provision
 =================================
