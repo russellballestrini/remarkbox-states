@@ -3,6 +3,9 @@ RemarkBox States
 
 Configuration management Salt States for remarkbox.com.
 
+These states assume machines are ubuntu ...
+this assumption will likely change.
+
 
 .. code-block::
 
