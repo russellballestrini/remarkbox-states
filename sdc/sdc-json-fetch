@@ -1,0 +1,4 @@
+#!/bin/bash
+sdc-listimages > images.json
+sdc-listpackages > packages.json
+sdc-listmachines > machines.json

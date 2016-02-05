@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# first iteration of this script hardcodes lots of junk ...
+
+# https://github.com/joyent/node-smartdc#cli-usage
+
+#image=`cat images | json -c 'this.name=="ubuntu-14.04" && this.version=="20151005"' 0.id`
+
+image='52be84d0-6b06-11e5-a4c0-9f0c52fa368a'
+package=`./sdc-search-json packages.json name t4-standard-256M id`
+
+hostname=$1
+saltmaster=`./sdc-search-json machines.json name $2 primaryIp`
+
+sdc-createmachine --image $image --package $package \
+  --name $hostname --metadata hostname=$hostname \
+  --metadata saltmaster=$saltmaster \
+  --script sdc-bootstrap-salt.sh
+
+# update our local JSON files.
+./sdc-json-fetch
+

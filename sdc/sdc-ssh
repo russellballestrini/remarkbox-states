@@ -1,0 +1,4 @@
+#!/bin/bash
+ip=`./sdc-search-json machines.json name $1 primaryIp`
+key=$2
+ssh -i $2 root@$ip
