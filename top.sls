@@ -2,7 +2,7 @@ base:
 
   #'*':
 
-  '*-salt':
+  '*-salt*':
     - salt-master
  
   '*-web*':
