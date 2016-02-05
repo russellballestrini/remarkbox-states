@@ -8,17 +8,17 @@
 #
 #     sites:
 #       demo.remarkbox.com:
-#       port: 6001
-#       source: salt://remarkbox-jenkins01/home/jenkins/workspace/remarkbox/env.tar.gz
-#       source_hash:
-#       commit_hash: salt://remarkbox-jenkins01/home/jenkins/workspace/remarkbox/commit-hash.txt
-#       commit_hash_sha:
+#         port: 6001
+#         source: salt://remarkbox-jenkins01/home/jenkins/workspace/remarkbox/env.tar.gz
+#         source_hash:
+#         commit_hash: salt://remarkbox-jenkins01/home/jenkins/workspace/remarkbox/commit-hash.txt
+#         commit_hash_sha:
 #
-#       # cookie library secret.
-#       session_secret: put-a-large-string-here
+#         # cookie library secret.
+#         session_secret: put-a-large-string-here
 #
-#       # authtkt library secret.
-#       authtkt_secret: put-a-large-string-here-but-different
+#         # authtkt library secret.
+#         authtkt_secret: put-a-large-string-here-but-different
 
 #include:
 #  - nginx
