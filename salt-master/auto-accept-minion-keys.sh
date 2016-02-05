@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script "unlocks the door" on the salt-master for a given amount of time
+# such that a fleet of new machines / minions can be brought into existance,
+# automatically accepted by the salt-master, and provisioned for their role.
+
 if [ -z "$1" ]
   then
     echo "./$0 <seconds-to-auto-accept> &"
