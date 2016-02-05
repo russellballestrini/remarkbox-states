@@ -2,7 +2,7 @@
 
 if [ -z "$1" ]
   then
-    echo "./$0 <seconds-to-auto-accept>"
+    echo "./$0 <seconds-to-auto-accept> &"
     exit 1
 fi
 
