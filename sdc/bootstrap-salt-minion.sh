@@ -13,3 +13,5 @@ echo "$HOSTNAME" > /etc/salt/minion_id
 echo "master: $SALTMASTER" > /etc/salt/minion.d/custom.conf
 
 service salt-minion restart
+
+salt-call state.highstate
