@@ -6,17 +6,39 @@
 
 #image=`cat images | json -c 'this.name=="ubuntu-14.04" && this.version=="20151005"' 0.id`
 
-image='52be84d0-6b06-11e5-a4c0-9f0c52fa368a'
-package=`./sdc-search-json packages.json name t4-standard-256M id`
+if [[ $# -ne 3 ]]; then
+    echo "$0 cluster_name instance_role instance_id"
+    exit
+fi
 
-hostname=$1
-saltmaster=`./sdc-search-json machines.json name $2 primaryIp`
+image='52be84d0-6b06-11e5-a4c0-9f0c52fa368a'
+package=`./sdc-json-search packages.json name t4-standard-256M id`
+
+cluster=$1
+instance_role=$2
+instance_id=$3
+hostname="$cluster-$instance_role-$instance_id"
+saltmaster=`./sdc-json-search machines.json name $cluster-salt primaryIp`
+
+echo ""
+echo "creating $hostname with salt-minion (master: $saltmaster)"
+echo ""
 
 sdc-createmachine --image $image --package $package \
-  --name $hostname --metadata hostname=$hostname \
+  --name $hostname \
+  --metadata hostname=$hostname \
+  --metadata cluster=$cluster \
+  --metadata instance_role=$instance_role \
+  --metadata instance_id=$instance_id \
   --metadata saltmaster=$saltmaster \
-  --script sdc-bootstrap-salt.sh
+  --tag hostname=$hostname \
+  --tag cluster=$cluster \
+  --tag instance_role=$instance_role \
+  --tag instance_id=$instance_id \
+  --script bootstrap-salt-minion.sh
 
 # update our local JSON files.
+echo ""
+echo "refreshing our cached SDC JSON files."
 ./sdc-json-fetch
-
+echo "done!"

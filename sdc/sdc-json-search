@@ -25,6 +25,6 @@ with open(json_file) as f:
     documents = json.load(f)
 
 for document in documents:
-    if document[search_field] == search_field_value:
+    if document[search_field].startswith(search_field_value):
         print(document[field_to_return])
         break
