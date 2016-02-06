@@ -9,9 +9,9 @@
 #     sites:
 #       demo.remarkbox.com:
 #         port: 6001
-#         source: salt://remarkbox-jenkins01/home/jenkins/workspace/remarkbox/env.tar.gz
+#         source: salt://remarkbox-jenkins-1/home/jenkins/workspace/remarkbox/env.tar.gz
 #         source_hash:
-#         commit_hash: salt://remarkbox-jenkins01/home/jenkins/workspace/remarkbox/commit-hash.txt
+#         commit_hash: salt://remarkbox-jenkins-1/home/jenkins/workspace/remarkbox/commit-hash.txt
 #         commit_hash_sha:
 #
 #         # cookie library secret.
